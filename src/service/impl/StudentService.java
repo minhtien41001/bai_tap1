@@ -8,22 +8,48 @@ import model.Student;
 import service.IStudentService;
 import utils.*;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class StudentService implements IStudentService {
 
     private static Scanner scanner = new Scanner(System.in);
     private static final String PATH = "src/data/studentList.csv";
+    private static final int THREAD_POOL_SIZE = 5; // Số luồng tối đa
+    private static final int BATCH_SIZE = 10; // Mỗi luồng xử lý 10 dòng
+    private static final String LOG_PATH = "src/data/process_log.txt";
 
     @Override
     public void displayStudent() {
         List<Student> studentList = ReadFileUtil.readStudentFile(PATH);
-        for (Student student : studentList){
-            System.out.println(student);
+        ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+
+        List<List<Student>> partitions = partitionList(studentList, BATCH_SIZE);
+
+        for (List<Student> batch : partitions) {
+            executor.execute(() -> processBatch(batch));
+        }
+
+        executor.shutdown();
+        try {
+            executor.awaitTermination(1, TimeUnit.MINUTES);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("Lỗi khi chờ luồng hoàn thành: " + e.getMessage());
         }
     }
 
@@ -275,5 +301,59 @@ public class StudentService implements IStudentService {
             }
         }
         return new Student(id,fullName,email,dateOfBirth,className,points);
+    }
+
+    private void processBatch(List<Student> batch) {
+        for (Student student : batch) {
+            processStudent(student);
+        }
+    }
+
+    private void processStudent(Student student) {
+        try {
+            // Xử lý sinh viên (ở đây chỉ là in ra màn hình)
+            System.out.println(student);
+            // Ghi log vào file
+            writeLog(student);
+        } catch (Exception e) {
+            System.err.println("Lỗi khi xử lý sinh viên ID: " + student.getId());
+        }
+    }
+
+    private void writeLog(Student student) {
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        String threadName = Thread.currentThread().getName();
+        String logMessage = String.format("[%s] [%s] Đã xử lý sinh viên: %d - %s%n",
+                timestamp, threadName, student.getId(), student.getFullName());
+
+        synchronized (this) { // Đảm bảo các luồng không bị ghi đè lẫn nhau
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_PATH, true))) {
+                writer.write(logMessage);
+            } catch (IOException e) {
+                System.err.println("Lỗi khi ghi log: " + e.getMessage());
+            }
+        }
+    }
+
+    private List<List<Student>> partitionList(List<Student> list, int size) {
+        List<List<Student>> partitions = new ArrayList<>();
+        for (int i = 0; i < list.size(); i += size) {
+            partitions.add(list.subList(i, Math.min(i + size, list.size())));
+        }
+        return partitions;
+    }
+
+    private void writeSuccessLog() {
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        String threadName = Thread.currentThread().getName();
+        String successMessage = String.format("[%s] [%s] Đọc thành công%n", timestamp, threadName);
+
+        synchronized (this) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_PATH, true))) {
+                writer.write(successMessage);
+            } catch (IOException e) {
+                System.err.println("Lỗi khi ghi log: " + e.getMessage());
+            }
+        }
     }
 }

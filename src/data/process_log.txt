@@ -1,0 +1,75 @@
+[2025-03-18 16:27:43] [pool-1-thread-2] Đã xử lý sinh viên: 11 - Bùi Văn G
+[2025-03-18 16:27:43] [pool-1-thread-1] Đã xử lý sinh viên: 1 - Trần Hậu Minh Tiến
+[2025-03-18 16:27:43] [pool-1-thread-3] Đã xử lý sinh viên: 21 - Hồ Thị Q
+[2025-03-18 16:27:43] [pool-1-thread-1] Đã xử lý sinh viên: 2 - Giap Hoang
+[2025-03-18 16:27:43] [pool-1-thread-2] Đã xử lý sinh viên: 12 - Nguyễn Thị H
+[2025-03-18 16:27:43] [pool-1-thread-1] Đã xử lý sinh viên: 3 - Trần Minh Tiến
+[2025-03-18 16:27:43] [pool-1-thread-3] Đã xử lý sinh viên: 22 - Đoàn Văn R
+[2025-03-18 16:27:43] [pool-1-thread-1] Đã xử lý sinh viên: 4 - Trần Hậu Kien
+[2025-03-18 16:27:43] [pool-1-thread-2] Đã xử lý sinh viên: 13 - Trần Văn I
+[2025-03-18 16:27:43] [pool-1-thread-1] Đã xử lý sinh viên: 5 - Nguyễn Văn A
+[2025-03-18 16:27:43] [pool-1-thread-3] Đã xử lý sinh viên: 23 - Tạ Văn S
+[2025-03-18 16:27:43] [pool-1-thread-1] Đã xử lý sinh viên: 6 - Phạm Thị B
+[2025-03-18 16:27:43] [pool-1-thread-2] Đã xử lý sinh viên: 14 - Lê Văn J
+[2025-03-18 16:27:43] [pool-1-thread-1] Đã xử lý sinh viên: 7 - Ngô Văn C
+[2025-03-18 16:27:43] [pool-1-thread-3] Đã xử lý sinh viên: 24 - Khúc Thị T
+[2025-03-18 16:27:43] [pool-1-thread-1] Đã xử lý sinh viên: 8 - Lê Thị D
+[2025-03-18 16:27:43] [pool-1-thread-2] Đã xử lý sinh viên: 15 - Phan Thị K
+[2025-03-18 16:27:43] [pool-1-thread-1] Đã xử lý sinh viên: 9 - Hoàng Văn E
+[2025-03-18 16:27:43] [pool-1-thread-3] Đã xử lý sinh viên: 25 - Chu Văn U
+[2025-03-18 16:27:43] [pool-1-thread-1] Đã xử lý sinh viên: 10 - Đỗ Thị F
+[2025-03-18 16:27:43] [pool-1-thread-2] Đã xử lý sinh viên: 16 - Đặng Văn L
+[2025-03-18 16:27:43] [pool-1-thread-2] Đã xử lý sinh viên: 17 - Vũ Thị M
+[2025-03-18 16:27:43] [pool-1-thread-2] Đã xử lý sinh viên: 18 - Trịnh Văn N
+[2025-03-18 16:27:43] [pool-1-thread-2] Đã xử lý sinh viên: 19 - Cao Thị O
+[2025-03-18 16:27:43] [pool-1-thread-2] Đã xử lý sinh viên: 20 - Trương Văn P
+[2025-03-18 16:46:23] [pool-1-thread-1] Đã xử lý giáo viên: 1 - HaiTT
+[2025-03-18 16:46:23] [pool-1-thread-2] Đã xử lý giáo viên: 11 - Nguyễn Thị H
+[2025-03-18 16:46:23] [pool-1-thread-3] Đã xử lý giáo viên: 21 - Đoàn Văn R
+[2025-03-18 16:46:23] [pool-1-thread-2] Đã xử lý giáo viên: 12 - Trần Văn I
+[2025-03-18 16:46:23] [pool-1-thread-1] Đã xử lý giáo viên: 2 - Trần Minh Tiến
+[2025-03-18 16:46:23] [pool-1-thread-2] Đã xử lý giáo viên: 13 - Lê Văn J
+[2025-03-18 16:46:23] [pool-1-thread-3] Đã xử lý giáo viên: 22 - Tạ Văn S
+[2025-03-18 16:46:23] [pool-1-thread-2] Đã xử lý giáo viên: 14 - Phan Thị K
+[2025-03-18 16:46:23] [pool-1-thread-1] Đã xử lý giáo viên: 3 - Giáp Hoàng
+[2025-03-18 16:46:23] [pool-1-thread-2] Đã xử lý giáo viên: 15 - Đặng Văn L
+[2025-03-18 16:46:23] [pool-1-thread-3] Đã xử lý giáo viên: 23 - Khúc Thị T
+[2025-03-18 16:46:23] [pool-1-thread-2] Đã xử lý giáo viên: 16 - Vũ Thị M
+[2025-03-18 16:46:23] [pool-1-thread-1] Đã xử lý giáo viên: 4 - Nguyễn Văn A
+[2025-03-18 16:46:23] [pool-1-thread-2] Đã xử lý giáo viên: 17 - Trịnh Văn N
+[2025-03-18 16:46:23] [pool-1-thread-3] Đã xử lý giáo viên: 24 - Chu Văn U
+[2025-03-18 16:46:23] [pool-1-thread-2] Đã xử lý giáo viên: 18 - Cao Thị O
+[2025-03-18 16:46:23] [pool-1-thread-1] Đã xử lý giáo viên: 5 - Phạm Thị B
+[2025-03-18 16:46:23] [pool-1-thread-2] Đã xử lý giáo viên: 19 - Trương Văn P
+[2025-03-18 16:46:23] [pool-1-thread-3] Đã xử lý giáo viên: 25 - Lương Văn V
+[2025-03-18 16:46:23] [pool-1-thread-2] Đã xử lý giáo viên: 20 - Hồ Thị Q
+[2025-03-18 16:46:23] [pool-1-thread-1] Đã xử lý giáo viên: 6 - Ngô Văn C
+[2025-03-18 16:46:23] [pool-1-thread-1] Đã xử lý giáo viên: 7 - Lê Thị D
+[2025-03-18 16:46:23] [pool-1-thread-1] Đã xử lý giáo viên: 8 - Hoàng Văn E
+[2025-03-18 16:46:23] [pool-1-thread-1] Đã xử lý giáo viên: 9 - Đỗ Thị F
+[2025-03-18 16:46:23] [pool-1-thread-1] Đã xử lý giáo viên: 10 - Bùi Văn G
+[2025-03-18 17:10:32] [pool-1-thread-1] Đã xử lý sinh viên: 1 - Trần Hậu Minh Tiến
+[2025-03-18 17:10:32] [pool-1-thread-2] Đã xử lý sinh viên: 11 - Bùi Văn G
+[2025-03-18 17:10:32] [pool-1-thread-3] Đã xử lý sinh viên: 21 - Hồ Thị Q
+[2025-03-18 17:10:32] [pool-1-thread-2] Đã xử lý sinh viên: 12 - Nguyễn Thị H
+[2025-03-18 17:10:32] [pool-1-thread-1] Đã xử lý sinh viên: 2 - Giap Hoang
+[2025-03-18 17:10:32] [pool-1-thread-2] Đã xử lý sinh viên: 13 - Trần Văn I
+[2025-03-18 17:10:32] [pool-1-thread-3] Đã xử lý sinh viên: 22 - Đoàn Văn R
+[2025-03-18 17:10:32] [pool-1-thread-2] Đã xử lý sinh viên: 14 - Lê Văn J
+[2025-03-18 17:10:32] [pool-1-thread-1] Đã xử lý sinh viên: 3 - Trần Minh Tiến
+[2025-03-18 17:10:32] [pool-1-thread-2] Đã xử lý sinh viên: 15 - Phan Thị K
+[2025-03-18 17:10:32] [pool-1-thread-3] Đã xử lý sinh viên: 23 - Tạ Văn S
+[2025-03-18 17:10:32] [pool-1-thread-2] Đã xử lý sinh viên: 16 - Đặng Văn L
+[2025-03-18 17:10:32] [pool-1-thread-1] Đã xử lý sinh viên: 4 - Trần Hậu Kien
+[2025-03-18 17:10:32] [pool-1-thread-2] Đã xử lý sinh viên: 17 - Vũ Thị M
+[2025-03-18 17:10:32] [pool-1-thread-3] Đã xử lý sinh viên: 24 - Khúc Thị T
+[2025-03-18 17:10:32] [pool-1-thread-2] Đã xử lý sinh viên: 18 - Trịnh Văn N
+[2025-03-18 17:10:32] [pool-1-thread-1] Đã xử lý sinh viên: 5 - Nguyễn Văn A
+[2025-03-18 17:10:32] [pool-1-thread-2] Đã xử lý sinh viên: 19 - Cao Thị O
+[2025-03-18 17:10:32] [pool-1-thread-3] Đã xử lý sinh viên: 25 - Chu Văn U
+[2025-03-18 17:10:32] [pool-1-thread-2] Đã xử lý sinh viên: 20 - Trương Văn P
+[2025-03-18 17:10:32] [pool-1-thread-1] Đã xử lý sinh viên: 6 - Phạm Thị B
+[2025-03-18 17:10:32] [pool-1-thread-1] Đã xử lý sinh viên: 7 - Ngô Văn C
+[2025-03-18 17:10:32] [pool-1-thread-1] Đã xử lý sinh viên: 8 - Lê Thị D
+[2025-03-18 17:10:32] [pool-1-thread-1] Đã xử lý sinh viên: 9 - Hoàng Văn E
+[2025-03-18 17:10:32] [pool-1-thread-1] Đã xử lý sinh viên: 10 - Đỗ Thị F

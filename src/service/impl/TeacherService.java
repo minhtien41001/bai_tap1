@@ -9,21 +9,44 @@ import model.Teacher;
 import service.ITeacherService;
 import utils.*;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class TeacherService implements ITeacherService {
     private static Scanner scanner = new Scanner(System.in);
     private static final String PATH = "src/data/teacherList.csv";
+    private static final int THREAD_POOL_SIZE = 5; // Số luồng tối đa
+    private static final int BATCH_SIZE = 10; // Mỗi luồng xử lý 10 dòng
+    private static final String LOG_PATH = "src/data/process_log.txt";
 
     @Override
     public void displayTeacher() {
         List<Teacher> teacherList = ReadFileUtil.readTeacherFile(PATH);
-        for (Teacher teacher : teacherList){
-            System.out.println(teacher);
+        ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+
+        List<List<Teacher>> partitions = partitionList(teacherList, BATCH_SIZE);
+
+        for (List<Teacher> batch : partitions) {
+            executor.execute(() -> processBatch(batch));
+        }
+
+        executor.shutdown();
+        try {
+            executor.awaitTermination(1, TimeUnit.MINUTES);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("Lỗi khi chờ luồng hoàn thành: " + e.getMessage());
         }
     }
 
@@ -228,5 +251,45 @@ public class TeacherService implements ITeacherService {
                 break;
         }
         return new Teacher(id,fullName,email,dateOfBirth,specialize);
+    }
+
+    private void processBatch(List<Teacher> batch) {
+        for (Teacher teacher : batch) {
+            processTeacher(teacher);
+        }
+    }
+
+    private void processTeacher(Teacher teacher) {
+        try {
+            // Xử lý giáo viên (ở đây chỉ là in ra màn hình)
+            System.out.println(teacher);
+            // Ghi log vào file
+            writeLog(teacher);
+        } catch (Exception e) {
+            System.err.println("Lỗi khi xử lý giáo viên ID: " + teacher.getId());
+        }
+    }
+
+    private void writeLog(Teacher teacher) {
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        String threadName = Thread.currentThread().getName();
+        String logMessage = String.format("[%s] [%s] Đã xử lý giáo viên: %d - %s%n",
+                timestamp, threadName, teacher.getId(), teacher.getFullName());
+
+        synchronized (this) { // Đảm bảo các luồng không bị ghi đè lẫn nhau
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_PATH, true))) {
+                writer.write(logMessage);
+            } catch (IOException e) {
+                System.err.println("Lỗi khi ghi log: " + e.getMessage());
+            }
+        }
+    }
+
+    private List<List<Teacher>> partitionList(List<Teacher> list, int size) {
+        List<List<Teacher>> partitions = new ArrayList<>();
+        for (int i = 0; i < list.size(); i += size) {
+            partitions.add(list.subList(i, Math.min(i + size, list.size())));
+        }
+        return partitions;
     }
 }
